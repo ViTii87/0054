@@ -125,6 +125,7 @@ public class MusicOrganizer
     {
         if(tracks.size() > 0) {
             player.startPlaying(tracks.get(0).getFilename());
+            tracks.get(0).addPlayCount();
         }
     }
     
@@ -181,5 +182,12 @@ public class MusicOrganizer
                 System.out.println(track.getDetails());
             }
         }
+    }
+    
+    /**
+     * Metodo que nos permite fijar una cancion como favorita de nuestra coleccion de musica
+     */
+    public void setAsFavourite(int index, boolean esFavorito){
+        tracks.get(index).setFavorito(esFavorito);
     }
 }

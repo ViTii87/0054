@@ -15,6 +15,8 @@ public class Track
     private String filename;
     // Atributo para contar las veces que se reproduce una cancion.
     private int playCount;
+    // Atributo para marcar una cancion como favorita.
+    private String favorito;
     
     /**
      * Constructor for objects of class Track.
@@ -26,6 +28,7 @@ public class Track
     {
         setDetails(artist, title, filename);
         playCount = 0;
+        favorito = "No";
     }
     
     /**
@@ -38,6 +41,7 @@ public class Track
     {
         setDetails("unknown", "unknown", filename);
         playCount = 0;
+        favorito = "No";
     }
     
     /**
@@ -73,7 +77,7 @@ public class Track
      */
     public String getDetails()
     {
-        return artist + ": " + title + "  (file: " + filename + ") " + "Contador: " + playCount;
+        return artist + ": " + title + "  (file: " + filename + ") " + "Contador: " + playCount + " Favorito: " + favorito;
     }
     
     /**
@@ -103,4 +107,22 @@ public class Track
         playCount += 1;
     }
     
+    /**
+     * Metodo que nos permite fijar una cancion como favorita.
+     */
+    public void setFavorito(boolean esFavorito){
+        if(esFavorito){
+            favorito = "Si";
+        }
+        else{
+            favorito = "No";
+        }
+    }
+    
+    /**
+     * Metodo para devolver el valor del atributo favorito.
+     */
+    public String getFavorito(){
+        return favorito;
+    }
 }
