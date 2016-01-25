@@ -170,4 +170,15 @@ public class MusicOrganizer
             addTrack(track);
         }
     }
+    
+    /**
+     * Metodo que muestra la informacion de los titulos que contengan el nombre de la cancion pasador por parametro.
+     */
+    public void findInTitle(String nombreCancion){
+        for(Track track : tracks) {
+            if(track.getFilename().contains(nombreCancion)) {
+                System.out.println(track.getDetails());
+            }
+        }
+    }
 }
