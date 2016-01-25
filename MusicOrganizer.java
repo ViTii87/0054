@@ -194,7 +194,7 @@ public class MusicOrganizer
      */
     public void findInTitle(String nombreCancion){
         for(Track track : tracks) {
-            if(track.getFilename().contains(nombreCancion)) {
+            if(track.getTitle().contains(nombreCancion)) {
                 System.out.println(track.getDetails());
             }
         }
