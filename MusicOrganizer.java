@@ -22,15 +22,15 @@ public class MusicOrganizer
     private Iterator<Track> it;
 
     /**
-     * Create a MusicOrganizer
+     * Create a MusicOrganizer, añadido parametro para pasarle la carpeta con las canciones
      */
-    public MusicOrganizer()
+    public MusicOrganizer(String carpeta)
     {
         tracks = new ArrayList<Track>();
         player = new MusicPlayer();
         reader = new TrackReader();
         isPlay = false;
-        readLibrary("audio");
+        readLibrary(carpeta);
         System.out.println("Music library loaded. " + getNumberOfTracks() + " tracks.");
         System.out.println();
     }
