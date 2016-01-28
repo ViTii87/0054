@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Random;
 
 /**
  * A class to hold details of audio tracks.
@@ -254,5 +255,13 @@ public class MusicOrganizer
                 it.remove();
             }
         }
+    }
+    
+    /**
+     * Metodo para reproducir una cancion de la coleccion aleatoriamente.
+     */
+    public void playRandom(){
+        Random aleatorio = new Random();
+        playTrack(aleatorio.nextInt(tracks.size()));
     }
 }
