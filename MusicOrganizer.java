@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * A class to hold details of audio tracks.
@@ -17,6 +18,8 @@ public class MusicOrganizer
     private TrackReader reader;
     // Atributo para saber si se esta reproduciendo una cancion.
     private boolean isPlay;
+    // Atributo iterador
+    private Iterator<Track> it;
 
     /**
      * Create a MusicOrganizer
@@ -207,12 +210,25 @@ public class MusicOrganizer
         tracks.get(index).setFavorito(esFavorito);
     }
 
+    /**
+     * Metodo que nos imprime por pantalla si se esta reproduciendo una cancion.
+     */
     public void isPlaying(){
         if(isPlay){
             System.out.println("ERROR. Actualmente se esta reproduciendo una cancion.");
         }
         else{
             System.out.println("En este momento no se esta reproduciendo ninguna cancion.");
+        }
+    }
+    
+    /**
+     * Metodo que listara todas las canciones de nuestra coleccion a traves de un iterador.
+     */
+    public void listAllTrackWithIterator(){
+        it = tracks.iterator();
+        while(it.hasNext()){
+            System.out.println(it.next().getDetails());
         }
     }
 }
