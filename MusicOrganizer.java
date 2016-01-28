@@ -231,4 +231,16 @@ public class MusicOrganizer
             System.out.println(it.next().getDetails());
         }
     }
+    
+    /**
+     * Metodo que eliminara una cancion de la coleccion usando iteradores si hay coincidencia con el artista pasado por parametro
+     */
+    public void removeByArtist(String artista){
+        it = tracks.iterator();
+        while(it.hasNext()){
+            if(it.next().getArtist().contains(artista)){
+                it.remove();
+            }
+        }
+    }
 }
