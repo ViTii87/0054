@@ -233,12 +233,24 @@ public class MusicOrganizer
     }
     
     /**
-     * Metodo que eliminara una cancion de la coleccion usando iteradores si hay coincidencia con el artista pasado por parametro
+     * Metodo que eliminara una cancion de la coleccion usando iteradores si hay coincidencia con el artista pasado por parametro.
      */
     public void removeByArtist(String artista){
         it = tracks.iterator();
         while(it.hasNext()){
             if(it.next().getArtist().contains(artista)){
+                it.remove();
+            }
+        }
+    }
+    
+    /**
+     * Metodo que eliminara una cancion de la coleccion usando iteradores si hay coincidencia con el titulo pasado por parametro.
+     */
+    public void removeByTitle(String titulo){
+        it = tracks.iterator();
+        while(it.hasNext()){
+            if(it.next().getTitle().contains(titulo)){
                 it.remove();
             }
         }
