@@ -279,16 +279,20 @@ public class MusicOrganizer
     }
     
     /**
-     * Metodo para reproducir aleatoriamente los primeros segundos de una cancion pero en una copia de nuestra coleccion
+     * Metodo para reproducir aleatoriamente los primeros segundos de una cancion pero en una copia de nuestra coleccion y luego eliminando la cancion de la copia
      */
     public void playShuffle2(){
-        ArrayList<Track> copia = new ArrayList<>();
+        int indice=0;
+        Random aleatorio = new Random();
+        ArrayList<Track> copia = new ArrayList<Track>();
         copia = (ArrayList)tracks.clone();
-        Collections.shuffle(tracks);
-        for(Track copyTrack : copia) {
-            System.out.println("Now playing: " + copyTrack.getArtist() + " - " + copyTrack.getTitle());
-            player.playSample(copyTrack.getFilename());
-            copyTrack.addPlayCount();
+        Collections.shuffle(copia);
+        while(copia.size()!=0){
+            indice = aleatorio.nextInt(copia.size());
+            System.out.println("Now playing: " + copia.get(indice).getArtist() + " - " + copia.get(indice).getTitle());
+            copia.get(indice).addPlayCount();
+            player.playSample(copia.get(indice).getFilename());
+            copia.remove(indice);
         }
     }
 }
